@@ -151,9 +151,8 @@ export const useGameState = (): [GameState, GameActions] => {
       saveState();
       const newGrid = grid.map(r => r.map(c => ({ ...c })));
       
-      // Check if the move violates Sudoku rules (this is a mistake)
-      const currentGrid = grid.map(r => r.map(c => c.value));
-      if (!isValidMove(currentGrid, row, col, value)) {
+      // Check if the move is incorrect (doesn't match the solution)
+      if (value !== solution[row][col]) {
         setMistakes(m => m + 1);
       }
       
