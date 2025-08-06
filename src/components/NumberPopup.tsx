@@ -76,7 +76,6 @@ export const NumberPopup: React.FC<NumberPopupProps> = ({
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     onNumberSelect(num);
-                    if (!notesMode) onClose();
                   }}
                   className={`
                     w-16 h-16 text-2xl font-semibold rounded-xl

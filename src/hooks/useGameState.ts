@@ -161,16 +161,25 @@ export const useGameState = (): [GameState, GameActions] => {
       newGrid[row][col].notes.clear();
       
       // Clear notes in same row, column, and box
-      for (let i = 0; i < 9; i++) {
-        newGrid[row][i].notes.delete(value);
-        newGrid[i][col].notes.delete(value);
+      const gridSize = newGrid.length;
+      const boxSize = gridSize === 4 ? 2 : 3;
+      
+      for (let i = 0; i < gridSize; i++) {
+        if (newGrid[row] && newGrid[row][i]) {
+          newGrid[row][i].notes.delete(value);
+        }
+        if (newGrid[i] && newGrid[i][col]) {
+          newGrid[i][col].notes.delete(value);
+        }
       }
       
-      const boxRow = Math.floor(row / 3) * 3;
-      const boxCol = Math.floor(col / 3) * 3;
-      for (let r = boxRow; r < boxRow + 3; r++) {
-        for (let c = boxCol; c < boxCol + 3; c++) {
-          newGrid[r][c].notes.delete(value);
+      const boxRow = Math.floor(row / boxSize) * boxSize;
+      const boxCol = Math.floor(col / boxSize) * boxSize;
+      for (let r = boxRow; r < boxRow + boxSize; r++) {
+        for (let c = boxCol; c < boxCol + boxSize; c++) {
+          if (newGrid[r] && newGrid[r][c]) {
+            newGrid[r][c].notes.delete(value);
+          }
         }
       }
       
@@ -267,9 +276,10 @@ export const useGameState = (): [GameState, GameActions] => {
 
   const checkErrors = useCallback(() => {
     const allConflicts = new Set<string>();
-    for (let row = 0; row < 9; row++) {
-      for (let col = 0; col < 9; col++) {
-        if (grid[row][col].value !== 0) {
+    const gridSize = grid.length;
+    for (let row = 0; row < gridSize; row++) {
+      for (let col = 0; col < gridSize; col++) {
+        if (grid[row] && grid[row][col] && grid[row][col].value !== 0) {
           const cellConflicts = getConflicts(grid, row, col);
           cellConflicts.forEach(c => allConflicts.add(c));
           if (cellConflicts.size > 0) {
