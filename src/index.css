@@ -18,38 +18,48 @@
     max-height: 3rem;
     font-size: clamp(0.875rem, 3.5vw, 1.125rem);
   }
-  
+
   @media (min-width: 768px) {
     .sudoku-cell {
       @apply w-12 h-12 text-lg;
     }
   }
-  
+
   /* Kiddie mode larger cells */
   .sudoku-cell.kiddie {
-    @apply w-16 h-16 text-2xl md:w-20 md:h-20 md:text-3xl;
+    width: calc((100vw - 3rem) / 4) !important;
+    height: calc((100vw - 3rem) / 4) !important;
+    max-width: 5rem !important;
+    max-height: 5rem !important;
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
   }
-  
+
+  @media (min-width: 768px) {
+    .sudoku-cell.kiddie {
+      @apply w-20 h-20 text-3xl;
+    }
+  }
+
   .sudoku-cell:hover {
     @apply bg-purple-50;
   }
-  
+
   .sudoku-cell.selected {
     @apply bg-purple-100 border-purple-400;
   }
-  
+
   .sudoku-cell.highlighted {
     @apply bg-blue-50;
   }
-  
+
   .sudoku-cell.error {
     @apply bg-red-100 text-red-600;
   }
-  
+
   .sudoku-cell.given {
     @apply text-gray-800 font-bold;
   }
-  
+
   .sudoku-cell.user-input {
     @apply text-blue-600;
   }
