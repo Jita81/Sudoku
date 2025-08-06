@@ -94,11 +94,11 @@ export const VictoryModal: React.FC<VictoryModalProps> = ({
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.5, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4"
+              className="bg-white rounded-2xl shadow-2xl p-4 sm:p-8 max-w-md w-full mx-4"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="text-center">
-                <h2 className="text-3xl font-bold text-purple-800 mb-2 font-display">
+                <h2 className="text-2xl sm:text-3xl font-bold text-purple-800 mb-2 font-display">
                   Congratulations, Kudzai! 🎉
                 </h2>
                 <p className="text-gray-600 mb-6">You've completed the puzzle!</p>
@@ -110,16 +110,16 @@ export const VictoryModal: React.FC<VictoryModalProps> = ({
                       initial={{ scale: 0, rotate: -180 }}
                       animate={{ scale: 1, rotate: 0 }}
                       transition={{ delay: i * 0.1 }}
-                      className={`text-4xl ${i < stars ? '' : 'opacity-30'}`}
+                      className={`text-3xl sm:text-4xl ${i < stars ? '' : 'opacity-30'}`}
                     >
                       ⭐
                     </motion.span>
                   ))}
                 </div>
 
-                <p className="text-xl font-semibold text-purple-700 mb-6">{message}</p>
+                <p className="text-lg sm:text-xl font-semibold text-purple-700 mb-4 sm:mb-6">{message}</p>
 
-                <div className="bg-purple-50 rounded-lg p-4 mb-6 space-y-2">
+                <div className="bg-purple-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 space-y-2">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Time:</span>
                     <span className="font-semibold">{formatTime(time)}</span>

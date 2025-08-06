@@ -164,9 +164,10 @@ export const initializeGameGrid = (puzzle: SudokuGrid): GameGrid => {
 
 // Check if the puzzle is complete
 export const isPuzzleComplete = (grid: GameGrid): boolean => {
-  for (let row = 0; row < 9; row++) {
-    for (let col = 0; col < 9; col++) {
-      if (grid[row][col].value === 0) return false;
+  const gridSize = grid.length;
+  for (let row = 0; row < gridSize; row++) {
+    for (let col = 0; col < gridSize; col++) {
+      if (grid[row] && grid[row][col] && grid[row][col].value === 0) return false;
     }
   }
   return true;
