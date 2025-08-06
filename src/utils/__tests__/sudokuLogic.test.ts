@@ -7,7 +7,6 @@ import {
   generatePuzzle,
   initializeGameGrid,
   isPuzzleComplete,
-  isGridValid,
   getConflicts,
   getHint,
 } from '../sudokuLogic';

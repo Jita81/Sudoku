@@ -67,7 +67,9 @@ function App() {
   const handleMobileCellClick = (row: number, col: number) => {
     gameActions.selectCell(row, col);
     // Show number popup only for empty cells that aren't given
-    if (gameState.grid[row][col].value === 0 && !gameState.grid[row][col].given) {
+    if (gameState.grid[row] && gameState.grid[row][col] && 
+        gameState.grid[row][col].value === 0 && 
+        !gameState.grid[row][col].given) {
       setShowNumberPopup(true);
     }
   };

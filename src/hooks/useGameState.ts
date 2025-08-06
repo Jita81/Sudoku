@@ -108,6 +108,7 @@ export const useGameState = (): [GameState, GameActions] => {
       }, 1000);
       return () => clearInterval(interval);
     }
+    return undefined;
   }, [isPaused, isComplete]);
 
   // Check completion

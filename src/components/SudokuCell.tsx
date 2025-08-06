@@ -24,7 +24,6 @@ export const SudokuCell: React.FC<SudokuCellProps> = ({
   onClick,
   gridSize = 9
 }) => {
-  const boxSize = gridSize === 4 ? 2 : 3;
   const isRightBorder = gridSize === 4 ? col === 1 : (col === 2 || col === 5);
   const isBottomBorder = gridSize === 4 ? row === 1 : (row === 2 || row === 5);
   
