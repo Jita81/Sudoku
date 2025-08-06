@@ -1,5 +1,6 @@
 // Core game types
-export type Difficulty = 'easy' | 'medium' | 'hard' | 'expert';
+export type Difficulty = 'kiddie' | 'easy' | 'medium' | 'hard' | 'expert';
+export type GridSize = 4 | 9;
 
 export type SudokuValue = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 

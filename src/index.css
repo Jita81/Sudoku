@@ -25,6 +25,11 @@
     }
   }
   
+  /* Kiddie mode larger cells */
+  .sudoku-cell.kiddie {
+    @apply w-16 h-16 text-2xl md:w-20 md:h-20 md:text-3xl;
+  }
+  
   .sudoku-cell:hover {
     @apply bg-purple-50;
   }

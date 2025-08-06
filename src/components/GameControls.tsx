@@ -35,6 +35,7 @@ export const GameControls: React.FC<GameControlsProps> = ({
   const [showDifficultyMenu, setShowDifficultyMenu] = React.useState(false);
 
   const difficulties: { label: string; value: Difficulty; color: string }[] = [
+    { label: 'Kiddie', value: 'kiddie', color: 'bg-purple-400' },
     { label: 'Easy', value: 'easy', color: 'bg-green-500' },
     { label: 'Medium', value: 'medium', color: 'bg-yellow-500' },
     { label: 'Hard', value: 'hard', color: 'bg-orange-500' },

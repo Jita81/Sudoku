@@ -20,26 +20,32 @@ export const SudokuGrid: React.FC<SudokuGridProps> = ({
   onCellClick,
   isPaused
 }) => {
+  const gridSize = grid.length;
+  const boxSize = gridSize === 4 ? 2 : 3;
+  
   const isHighlighted = (row: number, col: number): boolean => {
     if (!selectedCell) return false;
     const [selectedRow, selectedCol] = selectedCell;
     
-    // Highlight same row, column, or 3x3 box
+    // Highlight same row, column, or box
     const sameRow = row === selectedRow;
     const sameCol = col === selectedCol;
-    const sameBox = Math.floor(row / 3) === Math.floor(selectedRow / 3) &&
-                    Math.floor(col / 3) === Math.floor(selectedCol / 3);
+    const sameBox = Math.floor(row / boxSize) === Math.floor(selectedRow / boxSize) &&
+                    Math.floor(col / boxSize) === Math.floor(selectedCol / boxSize);
     
     return sameRow || sameCol || sameBox;
   };
 
+  const gridClass = gridSize === 4 ? "grid-cols-4" : "grid-cols-9";
+  const cellSize = gridSize === 4 ? "w-16 h-16" : "w-12 h-12";
+
   if (isPaused) {
     return (
       <div className="relative w-fit mx-auto">
-        <div className="grid grid-cols-9 gap-0 border-2 border-gray-700 bg-white opacity-20">
+        <div className={`grid ${gridClass} gap-0 border-2 border-gray-700 bg-white opacity-20`}>
           {grid.map((row, rowIndex) => (
             row.map((_, colIndex) => (
-              <div key={`${rowIndex}-${colIndex}`} className="w-12 h-12" />
+              <div key={`${rowIndex}-${colIndex}`} className={cellSize} />
             ))
           ))}
         </div>
@@ -54,7 +60,7 @@ export const SudokuGrid: React.FC<SudokuGridProps> = ({
 
   return (
     <motion.div 
-      className="grid grid-cols-9 gap-0 border-2 border-gray-700 bg-white mx-auto w-fit rounded shadow-xl"
+      className={`grid ${gridClass} gap-0 border-2 border-gray-700 bg-white mx-auto w-fit rounded shadow-xl`}
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.3 }}
@@ -70,6 +76,7 @@ export const SudokuGrid: React.FC<SudokuGridProps> = ({
             isHighlighted={isHighlighted(rowIndex, colIndex)}
             hasConflict={conflicts.has(`${rowIndex}-${colIndex}`)}
             onClick={() => onCellClick(rowIndex, colIndex)}
+            gridSize={gridSize}
           />
         ))
       ))}

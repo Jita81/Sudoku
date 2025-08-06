@@ -28,6 +28,7 @@ export const GameStats: React.FC<GameStatsProps> = ({
   };
 
   const difficultyColors = {
+    kiddie: 'text-purple-600 bg-purple-100',
     easy: 'text-green-600 bg-green-100',
     medium: 'text-yellow-600 bg-yellow-100',
     hard: 'text-orange-600 bg-orange-100',

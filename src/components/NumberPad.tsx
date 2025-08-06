@@ -6,18 +6,23 @@ interface NumberPadProps {
   onClearClick: () => void;
   notesMode: boolean;
   disabledNumbers?: Set<number>;
+  gridSize?: number;
 }
 
 export const NumberPad: React.FC<NumberPadProps> = ({
   onNumberClick,
   onClearClick,
   notesMode,
-  disabledNumbers = new Set()
+  disabledNumbers = new Set(),
+  gridSize = 9
 }) => {
+  const numbers = Array.from({length: gridSize}, (_, i) => i + 1);
+  const gridCols = gridSize === 4 ? 'grid-cols-2' : 'grid-cols-3';
+  
   return (
     <div className="flex flex-col gap-4">
-      <div className="grid grid-cols-3 gap-2">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
+      <div className={`grid ${gridCols} gap-2`}>
+        {numbers.map(num => (
           <motion.button
             key={num}
             onClick={() => onNumberClick(num)}

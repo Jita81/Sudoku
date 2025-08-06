@@ -97,8 +97,8 @@ describe('sudokuLogic', () => {
   describe('removeCells', () => {
     it('should remove correct number of cells based on difficulty', () => {
       const grid = generateCompleteGrid();
-      const difficulties: Difficulty[] = ['easy', 'medium', 'hard', 'expert'];
-      const expectedEmpty = { easy: 35, medium: 45, hard: 55, expert: 64 };
+      const difficulties: Difficulty[] = ['kiddie', 'easy', 'medium', 'hard', 'expert'];
+      const expectedEmpty = { kiddie: 6, easy: 35, medium: 45, hard: 55, expert: 64 };
 
       difficulties.forEach((difficulty) => {
         const puzzle = removeCells(grid, difficulty);

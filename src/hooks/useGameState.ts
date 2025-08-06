@@ -74,7 +74,7 @@ export const useGameState = (): [GameState, GameActions] => {
   const [conflicts, setConflicts] = useState<Set<string>>(new Set());
   const [isComplete, setIsComplete] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [difficulty, setDifficulty] = useState<Difficulty>('medium');
+  const [difficulty, setDifficulty] = useState<Difficulty>('kiddie');
   const [hintsUsed, setHintsUsed] = useState(0);
   const [mistakes, setMistakes] = useState(0);
   const [time, setTime] = useState(0);

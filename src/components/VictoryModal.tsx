@@ -41,6 +41,7 @@ export const VictoryModal: React.FC<VictoryModalProps> = ({
     score -= Math.floor(time / 60) * 5;
     
     const difficultyMultiplier = {
+      kiddie: 0.3,
       easy: 0.5,
       medium: 1,
       hard: 1.5,
@@ -52,6 +53,15 @@ export const VictoryModal: React.FC<VictoryModalProps> = ({
 
   const getRating = (): { stars: number; message: string } => {
     const score = getScore();
+    
+    // Special messages for kiddie mode
+    if (difficulty === 'kiddie') {
+      if (mistakes === 0 && hintsUsed === 0) return { stars: 5, message: "Perfect! You're a Sudoku Star! 🌟" };
+      if (mistakes <= 1) return { stars: 4, message: "Amazing! You're so smart! ⭐" };
+      if (mistakes <= 2) return { stars: 3, message: "Great job! Keep practicing! 👏" };
+      return { stars: 2, message: "You did it! Well done! 🎉" };
+    }
+    
     if (score >= 1500) return { stars: 5, message: "Absolutely Brilliant! 🌟" };
     if (score >= 1200) return { stars: 4, message: "Outstanding Performance! ⭐" };
     if (score >= 900) return { stars: 3, message: "Great Job! 👏" };

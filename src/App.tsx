@@ -17,6 +17,9 @@ function App() {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
   const [showNumberPopup, setShowNumberPopup] = React.useState(false);
   const isMobile = useIsMobile();
+  
+  // Calculate grid size based on difficulty
+  const gridSize = gameState.difficulty === 'kiddie' ? 4 : 9;
 
   useEffect(() => {
     if (gameState.isComplete) {
@@ -213,6 +216,7 @@ function App() {
             setShowNumberPopup(false);
           }}
           notesMode={gameState.notesMode}
+          gridSize={gridSize}
         />
       </div>
     );
@@ -293,6 +297,7 @@ function App() {
               onNumberClick={gameActions.inputValue}
               onClearClick={gameActions.clearCell}
               notesMode={gameState.notesMode}
+              gridSize={gridSize}
             />
           </motion.div>
         </div>

@@ -11,6 +11,7 @@ interface SudokuCellProps {
   isHighlighted: boolean;
   hasConflict: boolean;
   onClick: () => void;
+  gridSize?: number;
 }
 
 export const SudokuCell: React.FC<SudokuCellProps> = ({
@@ -20,14 +21,17 @@ export const SudokuCell: React.FC<SudokuCellProps> = ({
   isSelected,
   isHighlighted,
   hasConflict,
-  onClick
+  onClick,
+  gridSize = 9
 }) => {
-  const isRightBorder = col === 2 || col === 5;
-  const isBottomBorder = row === 2 || row === 5;
+  const boxSize = gridSize === 4 ? 2 : 3;
+  const isRightBorder = gridSize === 4 ? col === 1 : (col === 2 || col === 5);
+  const isBottomBorder = gridSize === 4 ? row === 1 : (row === 2 || row === 5);
   
   const cellClasses = [
     'sudoku-cell',
     'relative',
+    gridSize === 4 && 'kiddie',
     isSelected && 'selected',
     isHighlighted && 'highlighted',
     hasConflict && 'error',
@@ -49,8 +53,8 @@ export const SudokuCell: React.FC<SudokuCellProps> = ({
           {cell.value}
         </motion.span>
       ) : (
-        <div className="grid grid-cols-3 gap-0 absolute inset-1">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
+        <div className={`grid ${gridSize === 4 ? 'grid-cols-2' : 'grid-cols-3'} gap-0 absolute inset-1`}>
+          {Array.from({length: gridSize}, (_, i) => i + 1).map(num => (
             <span
               key={num}
               className={`text-[0.6rem] md:text-xs text-gray-400 leading-tight ${cell.notes.has(num) ? 'opacity-100' : 'opacity-0'}`}

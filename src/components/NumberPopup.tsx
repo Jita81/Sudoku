@@ -7,6 +7,7 @@ interface NumberPopupProps {
   onNumberSelect: (num: number) => void;
   onClear: () => void;
   notesMode: boolean;
+  gridSize?: number;
 }
 
 export const NumberPopup: React.FC<NumberPopupProps> = ({
@@ -14,7 +15,8 @@ export const NumberPopup: React.FC<NumberPopupProps> = ({
   onClose,
   onNumberSelect,
   onClear,
-  notesMode
+  notesMode,
+  gridSize = 9
 }) => {
   const popupRef = useRef<HTMLDivElement>(null);
 
@@ -66,8 +68,8 @@ export const NumberPopup: React.FC<NumberPopupProps> = ({
             </div>
             
             {/* Number Grid */}
-            <div className="grid grid-cols-3 gap-2 mb-3">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
+            <div className={`grid ${gridSize === 4 ? 'grid-cols-2' : 'grid-cols-3'} gap-2 mb-3`}>
+              {Array.from({length: gridSize}, (_, i) => i + 1).map(num => (
                 <motion.button
                   key={num}
                   whileHover={{ scale: 1.05 }}
