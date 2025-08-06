@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-pink-50 via-purple-50 to-indigo-50 min-h-screen;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .sudoku-cell {
+    @apply border border-gray-300 flex items-center justify-center font-semibold cursor-pointer transition-all duration-200;
+    width: calc((100vw - 3rem) / 9);
+    height: calc((100vw - 3rem) / 9);
+    max-width: 3rem;
+    max-height: 3rem;
+    font-size: clamp(0.875rem, 3.5vw, 1.125rem);
+  }
+  
+  @media (min-width: 768px) {
+    .sudoku-cell {
+      @apply w-12 h-12 text-lg;
+    }
+  }
+  
+  .sudoku-cell:hover {
+    @apply bg-purple-50;
+  }
+  
+  .sudoku-cell.selected {
+    @apply bg-purple-100 border-purple-400;
+  }
+  
+  .sudoku-cell.highlighted {
+    @apply bg-blue-50;
+  }
+  
+  .sudoku-cell.error {
+    @apply bg-red-100 text-red-600;
+  }
+  
+  .sudoku-cell.given {
+    @apply text-gray-800 font-bold;
+  }
+  
+  .sudoku-cell.user-input {
+    @apply text-blue-600;
+  }
+}

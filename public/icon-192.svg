@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdf2f8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#faf5ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="192" height="192" fill="url(#bgGradient)" rx="19.200000000000003" />
+  
+  <!-- Grid -->
+  <g transform="translate(19.19999999999999, 19.19999999999999)">
+    <!-- Outer border -->
+    <rect x="0" y="0" width="153.60000000000002" height="153.60000000000002" fill="white" stroke="#4c1d95" stroke-width="2.88" rx="7.68" />
+    
+    <!-- Thick lines for 3x3 boxes -->
+    <line x1="51.20000000000001" y1="0" x2="51.20000000000001" y2="153.60000000000002" stroke="#4c1d95" stroke-width="1.92" />
+    <line x1="102.40000000000002" y1="0" x2="102.40000000000002" y2="153.60000000000002" stroke="#4c1d95" stroke-width="1.92" />
+    <line x1="0" y1="51.20000000000001" x2="153.60000000000002" y2="51.20000000000001" stroke="#4c1d95" stroke-width="1.92" />
+    <line x1="0" y1="102.40000000000002" x2="153.60000000000002" y2="102.40000000000002" stroke="#4c1d95" stroke-width="1.92" />
+    
+    <!-- Sample numbers -->
+    <text x="8.533333333333335" y="11.946666666666669" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">5</text>
+    <text x="42.66666666666667" y="11.946666666666669" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">3</text>
+    <text x="76.80000000000001" y="29.01333333333334" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">7</text>
+    <text x="25.600000000000005" y="46.08000000000001" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">6</text>
+    <text x="93.86666666666669" y="46.08000000000001" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#ec4899">1</text>
+    <text x="128.00000000000003" y="46.08000000000001" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">9</text>
+    <text x="145.0666666666667" y="63.14666666666668" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">5</text>
+    <text x="8.533333333333335" y="80.21333333333335" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#ec4899">9</text>
+    <text x="25.600000000000005" y="80.21333333333335" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">8</text>
+    <text x="93.86666666666669" y="80.21333333333335" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">6</text>
+    <text x="59.73333333333335" y="97.28000000000002" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">8</text>
+    <text x="93.86666666666669" y="97.28000000000002" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#ec4899">3</text>
+    <text x="42.66666666666667" y="114.34666666666669" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">4</text>
+    <text x="59.73333333333335" y="131.41333333333336" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">7</text>
+    <text x="110.93333333333335" y="148.48000000000002" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#ec4899">2</text>
+    <text x="145.0666666666667" y="148.48000000000002" text-anchor="middle" font-family="Arial, sans-serif" font-size="10.240000000000002" font-weight="bold" fill="#4c1d95">1</text>
+  </g>
+</svg>
